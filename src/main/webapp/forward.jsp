@@ -23,6 +23,6 @@
 
 <button onclick="func()">Push!</button>
 <button onclick="onButtonClick()">Ajax!</button>
-<script src="<c:url value="/js/test.js" />"></script>
+<script src="<c:url value="js/test.js" />"></script>
 </body>
 </html>
