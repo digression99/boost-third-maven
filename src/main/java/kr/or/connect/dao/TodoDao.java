@@ -15,8 +15,6 @@ public class TodoDao {
 	private static String dbUser = "connectuser";
 	private static String dbPasswd = "connect123!@#";
 	
-	private HashMap<String, String> nextTypes;
-	
 	private Connection getConnection() {
 		Connection conn = null;
 
@@ -28,13 +26,6 @@ public class TodoDao {
 		}
 
 		return conn;
-	}
-	
-	public TodoDao() {
-		nextTypes = new HashMap<>();
-		nextTypes.put("TODO", "DOING");
-		nextTypes.put("DOING", "DONE");
-		nextTypes.put("DONE", "DONE");
 	}
 	
 	public List<TodoDto> getTodos() {
@@ -70,10 +61,13 @@ public class TodoDao {
 		int updateCount = 0;
 		String sql = "UPDATE todo SET type = ? WHERE id = ?";
 		
+		System.out.println("in update.");
+		System.out.println(newTodo);
+		
 		try (
 				Connection conn = this.getConnection();
 				PreparedStatement ps = conn.prepareStatement(sql)) {
-			ps.setString(1, this.nextTypes.get(newTodo.getType()));
+			ps.setString(1, newTodo.getType());
 			ps.setLong(2, newTodo.getId());
 			
 			updateCount = ps.executeUpdate();
@@ -132,13 +126,19 @@ public class TodoDao {
 			ps.setLong(1, id);
 			
 			try (ResultSet rs = ps.executeQuery()) {
-				String title = rs.getString("title");
-				String name = rs.getString("name");
-				int sequence = rs.getInt("sequence");
-				String type = rs.getString("type");
-				String regdate = rs.getDate("regdate").toString();
-				
-				ret = new TodoDto(id, title, name, sequence, type, regdate);
+				if (rs.next()) {
+
+					String title = rs.getString("title");
+					String name = rs.getString("name");
+					int sequence = rs.getInt("sequence");
+					String type = rs.getString("type");
+					String regdate = rs.getDate("regdate").toString();
+					
+					ret = new TodoDto(id, title, name, sequence, type, regdate);
+					
+				} else {
+					ret = null;
+				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

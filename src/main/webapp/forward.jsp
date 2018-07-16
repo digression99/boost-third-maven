@@ -9,9 +9,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-
-<link rel="stylesheet" href="<c:url value="/css/index.css" />" />
-
+<style>
+    <%@include file="/css/index.css" %>
+</style>
 
 </head>
 <body>
@@ -21,8 +21,11 @@
 
 <h1>${data2}</h1>
 
-<button onclick="func()">Push!</button>
+<button onclick="func(this)">Push!</button>
 <button onclick="onButtonClick()">Ajax!</button>
-<script src="<c:url value="js/test.js" />"></script>
+
+<script>
+	<%@include file="/js/test.js" %>
+</script>
 </body>
 </html>
