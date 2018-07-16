@@ -14,7 +14,7 @@ const ajaxFunc = () => {
 		console.log('description : ', data.description);
 	});
 
-	oReq.open('POST', 'http://localhost:8080/secondproject/ajax');
+	oReq.open('POST', '/secondproject/ajax');
 	oReq.send();
 }
 
@@ -30,7 +30,7 @@ const ajaxPromise = () => new Promise((resolve, reject) => {
 	}
 	xhr.onerror = () => reject(xhr.statusText);
 	
-	xhr.open('POST', 'http://localhost:8080/secondproject/ajax');
+	xhr.open('POST', '/secondproject/ajax');
 	xhr.send();
 });
 
@@ -39,4 +39,21 @@ const onButtonClick = () => {
 		console.log('roleid : ', role.roleId);
 		console.log('description : ', role.description);
 	}).catch(e => console.log(e));
+}
+
+const onSubmit = (e) => {
+	console.log(e);
+	
+	const form = document.forms('todo-form');
+	
+	const title = form['title'].value;
+	
+	if (title.length > 1) {
+		console.log('title is :', title);
+	}
+}
+
+const changeType = (e) => {
+	console.log('change type!');
+	console.log(e);
 }
