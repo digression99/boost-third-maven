@@ -3,6 +3,9 @@ package kr.or.connect.servlets;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,31 +19,32 @@ import kr.or.connect.dto.TodoDto;
 
 @WebServlet("/")
 public class MainServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		TodoDao todoDao = new TodoDao();
-		
-		List<TodoDto> todoList = todoDao.getTodos();
-		
-		List<TodoDto> typesTodo = new ArrayList<>();
-		List<TodoDto> typesDoing = new ArrayList<>();
-		List<TodoDto> typesDone = new ArrayList<>();
-		
-		for (TodoDto todo : todoList) {
-			String type = todo.getType();
-			
-			if (type.equals("TODO")) typesTodo.add(todo);
-			else if (type.equals("DOING")) typesDoing.add(todo); 
-			else typesDone.add(todo);
-		}
-		
-		request.setAttribute("typesTodo", typesTodo);
-		request.setAttribute("typesDoing", typesDoing);
-		request.setAttribute("typesDone", typesDone);
-		
+
+	private TodoDao todoDao;
+//	private Logger log;
+
+	@Override
+	public void init() throws ServletException {
+		super.init();
+		todoDao = TodoDao.getInstance();
+//		log = Logger.getGlobal();
+	}
+
+	@Override
+	public void destroy() {
+		this.todoDao.closeConnection();
+		super.destroy();
+	}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+		throws ServletException, IOException {
+
+		// set attributes.
+		request.setAttribute("typesTodo", todoDao.selectTodosByType("TODO"));
+		request.setAttribute("typesDoing", todoDao.selectTodosByType("DOING"));
+		request.setAttribute("typesDone", todoDao.selectTodosByType("DONE"));
+
 		RequestDispatcher rd = request.getRequestDispatcher("/main.jsp");
-		rd.forward(request,response);
+		rd.forward(request, response);
 	}
 }

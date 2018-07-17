@@ -19,6 +19,7 @@
 		
 		<input type="submit" value="submit" />
 	</form>
+	
 	<script src="<c:url value="js/test.js" />"></script>
 	<!-- <script src="/js/test.js"></script> -->
 </body>

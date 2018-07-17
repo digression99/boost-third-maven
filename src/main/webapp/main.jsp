@@ -24,15 +24,15 @@
 				<ul id="types-todo-list">
 					<c:forEach var="todo" items="${typesTodo}">
 						<li class="list-item">
-							<article class="list-item-content">
-								<h3 class="list-item-title">title : ${todo.title}</h3>
-								<div>date : ${todo.regDate}</div>
-								<div>${todo.name}</div>
-								<div>sequence : ${todo.sequence}</div>
+							<article class="list-item-content-container">
+								<h3 class="list-item-title">${todo.title}</h3>
+								<div class="list-item-content">등록날짜:${todo.regDate} ${todo.name} 우선순위:${todo.sequence}</div>
 							</article>
-							<input type="hidden" value="${todo.id}" name="todo-id"/>
-							<input type="hidden" value="${todo.type}" name="todo-type"/>
-							<button class="list-item-button"  onclick="onChangeType(this)">Change</button>
+							<aside class="list-item-side">
+								<input type="hidden" value="${todo.id}" name="todo-id"/>
+								<input type="hidden" value="${todo.type}" name="todo-type"/>
+								<button class="list-item-button"  onclick="onChangeType(this)">&rarr;</button>
+							</aside>
 						</li>
 					</c:forEach>
 				</ul>
@@ -42,13 +42,15 @@
 				<ul id="types-doing-list">
 					<c:forEach var="todo" items="${typesDoing}">
 						<li class="list-item">
-							<h3>title : ${todo.title}</h3>
-							<div>name : ${todo.name}</div>
-							<div>sequence : ${todo.sequence}</div>
-							<div>date : ${todo.regDate}</div>
-							<input type="hidden" value="${todo.id}" name="todo-id"/>
-							<input type="hidden" value="${todo.type}" name="todo-type"/>
-							<button onclick="onChangeType(this)">Change</button>
+							<article class="list-item-content-container">
+								<h3 class="list-item-title">${todo.title}</h3>
+								<div class="list-item-content">등록날짜:${todo.regDate} ${todo.name} 우선순위:${todo.sequence}</div>
+							</article>
+							<aside class="list-item-side">
+								<input type="hidden" value="${todo.id}" name="todo-id"/>
+								<input type="hidden" value="${todo.type}" name="todo-type"/>
+								<button class="list-item-button"  onclick="onChangeType(this)">&rarr;</button>
+							</aside>
 						</li>
 					</c:forEach>
 				</ul>
@@ -58,12 +60,14 @@
 				<ul id="types-done-list">
 					<c:forEach var="todo" items="${typesDone}">
 						<li class="list-item">
-							<h3>title : ${todo.title}</h3>
-							<div>name : ${todo.name}</div>
-							<div>sequence : ${todo.sequence}</div>
-							<div>date : ${todo.regDate}</div>
-							<div>type : ${todo.type }</div>	
-							<input type="hidden" value="${todo.id}"/>
+							<article class="list-item-content-container">
+								<h3 class="list-item-title">${todo.title}</h3>
+								<div class="list-item-content">등록날짜:${todo.regDate} ${todo.name} 우선순위:${todo.sequence}</div>
+							</article>
+							<aside class="list-item-side">
+								<input type="hidden" value="${todo.id}" name="todo-id"/>
+								<input type="hidden" value="${todo.type}" name="todo-type"/>
+							</aside>
 						</li>
 					</c:forEach>
 				</ul>

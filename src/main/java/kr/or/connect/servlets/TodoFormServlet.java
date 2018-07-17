@@ -18,5 +18,4 @@ public class TodoFormServlet extends HttpServlet {
 		RequestDispatcher rd = request.getRequestDispatcher("/todoForm.jsp");
 		rd.forward(request,response);
 	}
-
 }

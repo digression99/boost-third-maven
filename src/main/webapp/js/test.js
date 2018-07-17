@@ -40,7 +40,7 @@ const func = (e) => {
 };
 
 const changeNodeList = (e) => {
-	const node = e.parentElement;
+	const node = e.parentElement.parentElement;
 	const type = node.querySelector('input[name=todo-type]').value;
 
 	console.log('in change node list, type : ', type);
@@ -49,7 +49,8 @@ const changeNodeList = (e) => {
 	const cloneNode = node.cloneNode(true);
 
 	if (type === "DOING") {
-		cloneNode.removeChild(cloneNode.querySelector('button'));
+		const aside = cloneNode.querySelector('.list-item-side');
+		aside.removeChild(aside.querySelector('.list-item-button'));
 	}
 	cloneNode.querySelector('input[name=todo-type]').value = getNextType(type);
 	
