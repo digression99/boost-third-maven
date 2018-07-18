@@ -25,7 +25,7 @@
 <button onclick="onButtonClick()">Ajax!</button>
 
 <script>
-	<%@include file="/js/test.js" %>
+	<%@include file="/js/index.js" %>
 </script>
 </body>
 </html>

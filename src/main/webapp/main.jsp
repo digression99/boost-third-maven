@@ -4,79 +4,52 @@
 
 <!DOCTYPE html>
 <html>
-<head>
-<%@include file="/meta.jsp" %>
-
-<title>TodoApp</title>
-
-<style>
-		<%@include file="/css/index.css" %>
-</style>
-</head>
-<body>
-	<div class="container">
-		<header>
-			<a id="form-register-button" href="/secondproject/todo/form">새로운 TODO 등록</a>
-		</header>
-		<div class="list-container">
-			<section id="types-todo-container">
-				<div class="container-title">TODO</div>
-				<ul id="types-todo-list">
-					<c:forEach var="todo" items="${typesTodo}">
-						<li class="list-item">
-							<article class="list-item-content-container">
-								<h3 class="list-item-title">${todo.title}</h3>
-								<div class="list-item-content">등록날짜:${todo.regDate} ${todo.name} 우선순위:${todo.sequence}</div>
-							</article>
-							<aside class="list-item-side">
-								<input type="hidden" value="${todo.id}" name="todo-id"/>
-								<input type="hidden" value="${todo.type}" name="todo-type"/>
-								<button class="list-item-button"  onclick="onChangeType(this)">&rarr;</button>
-							</aside>
-						</li>
-					</c:forEach>
-				</ul>
-			</section>
-			<section id="types-doing-container">
-				<div class="container-title">DOING</div>
-				<ul id="types-doing-list">
-					<c:forEach var="todo" items="${typesDoing}">
-						<li class="list-item">
-							<article class="list-item-content-container">
-								<h3 class="list-item-title">${todo.title}</h3>
-								<div class="list-item-content">등록날짜:${todo.regDate} ${todo.name} 우선순위:${todo.sequence}</div>
-							</article>
-							<aside class="list-item-side">
-								<input type="hidden" value="${todo.id}" name="todo-id"/>
-								<input type="hidden" value="${todo.type}" name="todo-type"/>
-								<button class="list-item-button"  onclick="onChangeType(this)">&rarr;</button>
-							</aside>
-						</li>
-					</c:forEach>
-				</ul>
-			</section>
-			<section id="types-done-container">
-				<div class="container-title">DONE</div>
-				<ul id="types-done-list">
-					<c:forEach var="todo" items="${typesDone}">
-						<li class="list-item">
-							<article class="list-item-content-container">
-								<h3 class="list-item-title">${todo.title}</h3>
-								<div class="list-item-content">등록날짜:${todo.regDate} ${todo.name} 우선순위:${todo.sequence}</div>
-							</article>
-							<aside class="list-item-side">
-								<input type="hidden" value="${todo.id}" name="todo-id"/>
-								<input type="hidden" value="${todo.type}" name="todo-type"/>
-							</aside>
-						</li>
-					</c:forEach>
-				</ul>
-			</section>
+	<head>
+		<%@include file="/meta.jsp" %>
+		
+		<title>TodoApp</title>
+		
+		<link rel="stylesheet" href="//fonts.googleapis.com/earlyaccess/nanumgothic.css">
+		<style>
+				<%@include file="/css/index.css" %>
+				<%@include file="/css/main.css" %>
+		</style>
+	</head>
+	<body>
+		<h1 id="main-title" class="page-header-title">나의 해야할 일들</h1>
+		<div class="container">
+			<header>
+				<a id="form-register-button" href="/secondproject/todo/form">새로운 TODO 등록</a>
+			</header>
+			<div class="list-container">
+				<c:set var="sectionType" scope="request" value="types-todo-container" />
+				<c:set var="sectionTitle" scope="request" value="TODO" />
+				<c:set var="listType" scope="request" value="types-todo-list" />
+				<c:set var="nowList" scope="request" value="${typesTodo}" />
+				
+				<%@include file="/mainSection.jsp" %>
+				
+				<c:set var="sectionType" scope="request" value="types-doing-container" />
+				<c:set var="sectionTitle" scope="request" value="DOING" />
+				<c:set var="listType" scope="request" value="types-doing-list" />
+				<c:set var="nowList" scope="request" value="${typesDoing}" />
+				<%@include file="/mainSection.jsp" %>
+				
+				<c:set var="sectionType" scope="request" value="types-done-container" />
+				<c:set var="sectionTitle" scope="request" value="DONE" />
+				<c:set var="listType" scope="request" value="types-done-list" />
+				<c:set var="nowList" scope="request" value="${typesDone}" />
+				<%@include file="/mainSection.jsp" %>
+				
+				<c:remove var="sectionType" scope="request" />
+				<c:remove var="sectionTitle" scope="request" />
+				<c:remove var="listType" scope="request" />
+				<c:remove var="nowList" scope="request" />
+			</div>
 		</div>
-	</div>
-
-	<script>
-	<%@include file="/js/test.js" %>
-	</script>
-</body>
+	
+		<script>
+		<%@include file="/js/index.js" %>
+		</script>
+	</body>
 </html>

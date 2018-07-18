@@ -1,0 +1,132 @@
+@charset "UTF-8";
+
+header {
+    height : 10%;
+    width : 100%;
+    padding : 0.5rem;
+    box-sizing : border-box;
+    min-width : 800px;
+    max-width : 1200px;
+    padding-top : 3rem;
+    text-align : right;
+    margin : 0 auto;
+}
+
+#main-title {
+    position : fixed;
+    top : 4rem;
+    left : 2rem;
+    transform : rotate(-30deg);
+    z-index: 3px;
+}
+
+#form-register-button {
+	display : inline-block;
+	width : 10rem;
+	height : 3rem;
+	background-color : #20adee;
+	color : #ffffeb;
+	text-align : center;
+	padding-top : 0.8rem;
+	box-sizing : border-box;
+}
+
+#types-todo-container, #types-doing-container, #types-done-container  {
+    float : left;
+    width : 33.3%;
+	height : 100%;
+	padding : 0.5em;
+	min-height : 800px;
+	min-width : 300px;
+	max-width : 400px;
+	top : 0;
+}
+
+.list-container {
+    position : relative;
+	width : 100%;
+    height : 100%;
+}
+
+#types-todo-list {
+	display : block;
+}
+
+#types-doing-list {
+	display : block;
+}
+
+#types-done-list {
+	display : block;
+}
+
+.container-title {
+	display : block;
+	text-align : left;
+	background-color : #406274;
+	color : #FFFFEE;
+	height : 4rem;
+	padding : 1rem 0.8rem;
+	font-size : 1.5rem;
+	box-sizing : border-box;
+
+	/*
+	position: relative;
+	vertical-align: middle;
+	display: inline-block;
+	top: 50%;
+	transform: translateY(-50%);
+	*/
+}
+
+.list-item {
+	display : block;
+	margin : 0.5rem 0;
+	padding : 0.5rem 1.2rem;
+	background-color : #cee5ef;
+	overflow : hidden;
+	clear : both;
+	box-sizing : border-box;
+}
+
+.list-item-content-container {
+    float : left;
+	width : 80%;
+	height : 100%;
+	min-height : 70px;
+	text-align : left;
+    padding-top : 0.5rem;
+}
+
+.list-item-side {
+    float : right;
+	width : 20%;
+	height : 100%;
+	min-height : 70px;
+	text-align : right;
+	padding-top : 2.5rem;
+	box-sizing : border-box;
+}
+
+.list-item-button {
+    float : right;
+	bottom : 0;
+	right : 0;
+	width : 2rem;
+	height : 1.6rem;
+	background-color : #ffffeb;
+	color : #400040;
+	border-radius : 0.2rem;
+	box-shadow : 3px 3px 3px gray;
+}
+
+.list-item-title {
+	font-size : 1.2rem;
+	margin-bottom : 1rem;
+	text-align : left;
+}
+
+.list-item-content {
+	font-size : 0.8rem;
+	text-align : left;
+}

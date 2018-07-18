@@ -1,0 +1,122 @@
+@charset "UTF-8";
+
+header {
+    box-sizing : border-box;
+    height : 10%;
+    width : 100%;
+    padding : 0.5rem;
+    min-width : 800px;
+    max-width : 1000px;
+    padding-top : 3rem;
+    text-align : center;
+    margin : 0 auto;
+}
+
+.form-container {
+    width : 80%;
+    height : 100%;
+    margin : 0 auto;
+    max-width : 1000px;
+}
+
+.form-input-title {
+    display : block;
+    size : 30;
+    height : 3rem;
+    width : 100%;
+    box-shadow : 3px 3px 3px gray;
+    box-sizing : border-box;
+    margin : 0.5rem;
+    font-size : 1.5rem;
+}
+
+.form-input-title:hover {
+    border : 2px double #61BFE8;
+}
+
+.form-input-name {
+    display : block;
+    size : 20;
+    height : 3rem;
+    width : 50%;
+    box-shadow : 3px 3px 3px gray;
+    box-sizing : border-box;
+    margin : 0.5rem;
+    font-size : 1.5rem;
+}
+
+.form-input-name:hover {
+    border : 2px double #61BFE8;
+}
+
+.input-label-title {
+    color : #3C597F;
+    font-size : 1.5rem;
+    font-style : oblique;
+}
+
+.form-radio-text {
+    font-size : 1.5rem;
+}
+
+.input-container {
+  margin : 1rem;
+  font-size : 1rem;
+  font-weight : bolder;
+}
+
+#form-input-section {
+  text-align : left;
+  height : 80%;
+}
+
+#form-control-section {
+  clear : both;
+  overflow : hidden;
+  height : 20%;
+}
+
+.page-controller {
+  float : left;
+  text-align : left;
+  width : 30%;
+}
+
+.form-controller {
+  float : right;
+  text-align : right;
+  width : 70%;
+}
+
+.form-radio-button {
+  margin : 0.3rem 1rem;
+  font-size : 1rem;
+  font-weight : bold;
+  display : inline-block;
+}
+
+.form-back-button {
+  font-size : 1rem;
+  font-weight : bold;
+  display : inline-block;
+  height : 3rem;
+  width : 8rem;
+  padding-top : 0.8rem;
+  margin : 1rem;
+  text-align : center;
+  color : black;
+  border : 1px solid gray;
+  text-decoration : underline;
+}
+
+.form-controller-button {
+  font-size : 1rem;
+  height : 3rem;
+  width : 8rem;
+  padding : 0.3rem;
+  margin : 1rem 0.5rem 1rem 0.5rem;
+  text-align : center;
+  background-color : #20adee;
+  color : #ffffee;
+  font-weight : bold;
+}
