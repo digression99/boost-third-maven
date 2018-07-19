@@ -109,6 +109,13 @@ header {
   text-decoration : underline;
 }
 
+.form-back-button-disabled {
+    pointer-events : none;
+    cursor : default;
+    opacity : 0.5;
+    background-color : gray;
+}
+
 .form-controller-button {
   font-size : 1rem;
   height : 3rem;
@@ -119,4 +126,17 @@ header {
   background-color : #20adee;
   color : #ffffee;
   font-weight : bold;
+}
+
+.form-controller-button:disabled {
+    opacity : 0.5;
+    background-color : gray;
+}
+
+.form-controller-button:disabled:hover {
+    cursor : default;
+}
+
+.form-controller-button:hover {
+    cursor : pointer;
 }

@@ -2,6 +2,9 @@
  *
  */
 
+ // default global instances.
+ const message = new Message();
+
  const getNextType = type => {
      return type == "TODO" ? "DOING" : "DONE";
  }
